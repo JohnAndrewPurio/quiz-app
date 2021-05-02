@@ -3,6 +3,7 @@ import './App.css'
 import Quiz from "./Quiz/Quiz"
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Results from './Results/Results'
+import Start from './Start/Start'
 
 const URL = 'https://opentdb.com/api.php?amount=10&category=19&type=multiple'
 
@@ -42,8 +43,6 @@ export default function App() {
         getData()
     }, [])
 
-    console.log(quizData)
-
     return (
         <div className="App">
             <Router>
@@ -52,6 +51,9 @@ export default function App() {
                         {
                             quizData.length === 0 ? <h2>Loading...</h2>: <Quiz quizData={quizData} />
                         }
+                    </Route>
+                    <Route exact path="/start">
+                        <Start />
                     </Route>
                     <Route exact path="/results" render={(props) => <Results data={props.location.state} />} ></Route>
                 </Switch>

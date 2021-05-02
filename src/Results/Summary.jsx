@@ -14,11 +14,12 @@ export default function Summary({answers, quizData}) {
             <tbody>
                 {
                     answers.map( (answer, index) => <tr key={index}>
-                                                <td>{quizData[index].question}</td>
-                                                <td className={`answers ${answer === quizData[index].correctChoice ? 'correct': 'mistaken'}`}>
-                                                    {quizData[index].choices[answer]}
+                                                <td dangerouslySetInnerHTML={{__html: quizData[index].question}}></td>
+                                                <td className={`answers ${answer === quizData[index].correctChoice ? 'correct': 'mistaken'}`}
+                                                    dangerouslySetInnerHTML={{__html: quizData[index].choices[answer]}}>
                                                 </td>
-                                                <td className="answers correct">{quizData[index].choices[quizData[index].correctChoice]}</td>
+                                                <td className="answers correct" dangerouslySetInnerHTML={{__html: quizData[index].choices[quizData[index].correctChoice]}}> 
+                                                </td>
                                             </tr> 
                     )
                 }

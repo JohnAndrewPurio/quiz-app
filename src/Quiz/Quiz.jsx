@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useEffect } from 'react'
 import './Quiz.css'
 import Choices from './Choices'
 import Question from './Question'
@@ -15,12 +15,7 @@ export default function Quiz({quizData}) {
     const [timerLength, setTimerLength] = useState(100)
     const [timerID, setTimerID] = useState('')
     const [countdownID, setCountdownID] = useState('')
-
-    const currentNum = useMemo( () => {
-        return quizData[quizNum]
-    }, [quizNum])
-       
-    
+    const currentNum = quizData[quizNum]
 
     useEffect(() => {
         if(quizNum < quizData.length) {
@@ -28,6 +23,8 @@ export default function Quiz({quizData}) {
             clearInterval(timerID)
             clearTimeout(countdownID)
         }
+
+        // eslint-disable-next-line
     }, [quizNum])
 
     const adjustTimer = () => {
@@ -77,6 +74,8 @@ export default function Quiz({quizData}) {
             }
         }} />
     }
+
+    console.log('Yay')
 
     return (
          quizNum === quizData.length ? redirectToResults() :

@@ -11,12 +11,12 @@ export default function Choices({choice, index, checkAnswer, chosenAnswer, answe
     const selected = index === chosenAnswer
     const key = index === correctAnswer
 
-    console.log(answeredCorrect, selected)
+    console.log(answeredCorrect, selected, index, chosenAnswer, correctAnswer)
 
     return (
         <button className={disabled ? `disabled ${selected ? answeredCorrect ? 'correct': 'mistaken': key ? 'correct': ''}`: "choice"} 
             onClick={() => checkAnswer(index) } disabled={disabled} >
-                {choice}
+                <h2 dangerouslySetInnerHTML={{__html: choice}}></h2>
                 <Confetti active={answeredCorrect && selected} config={config} />
         </button>
     )
