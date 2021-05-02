@@ -28,3 +28,60 @@ body {
     font-family: 'Montserrat', sans-serif;
     overflow: hidden;
 }
+
+
+.quiz {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    height: 100%;
+    width: 100%;
+}
+
+.timer {
+    display: flex;
+    justify-content: flex-end;
+    background-color: #adff2f;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 0.5vmin;
+    width: 100%;
+    transition: width ease-in;
+}
+
+.question {
+    font-weight: 500;
+    margin: 2vmin;
+}
+
+.choices {
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 3vmin;
+}
+
+.choice, .disabled {
+    border-radius: 1vmin;
+    margin: 5vmin;
+    transform: scale(1.1);
+    display: flex;
+    padding: 1rem;
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    font-weight: bold;
+}
+
+.choice:hover, .correct  {
+    background-color: #adff2f;
+    color: #252850;
+}
+
+.mistaken {
+    background-color: firebrick;
+}

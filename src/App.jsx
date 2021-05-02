@@ -5,7 +5,9 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Results from './Results/Results'
 import Start from './Start/Start'
 
-const URL = 'https://opentdb.com/api.php?amount=10&category=19&type=multiple'
+//Categories: 18 - Computer, 19 - Math, 9 - General Knowledge
+
+const URL = 'https://opentdb.com/api.php?amount=10&category=9&type=multiple'
 
 export default function App() {
     const [quizData, setQuizData] = useState([])

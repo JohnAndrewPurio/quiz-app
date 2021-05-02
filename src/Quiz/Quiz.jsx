@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import './Quiz.css'
 import Choices from './Choices'
 import Question from './Question'
 import { Redirect } from 'react-router'
@@ -16,6 +15,8 @@ export default function Quiz({quizData}) {
     const [timerID, setTimerID] = useState('')
     const [countdownID, setCountdownID] = useState('')
     const currentNum = quizData[quizNum]
+
+    console.log(currentNum)
 
     useEffect(() => {
         if(quizNum < quizData.length) {
@@ -43,7 +44,7 @@ export default function Quiz({quizData}) {
         answersSelected.push(index)
         clearInterval(timerID)
         clearTimeout(countdownID)
-
+        
         setTimerLength(0)
         setSelectedAnswers(answersSelected)
         setScore(pointEarned)
@@ -64,6 +65,7 @@ export default function Quiz({quizData}) {
 
     const redirectToResults = () => {
         clearTimeout(countdownID)
+        clearInterval(timerID)
 
         return <Redirect to={{
             pathname: '/results',
@@ -74,8 +76,6 @@ export default function Quiz({quizData}) {
             }
         }} />
     }
-
-    console.log('Yay')
 
     return (
          quizNum === quizData.length ? redirectToResults() :
