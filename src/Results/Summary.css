@@ -1,0 +1,13 @@
+table, th, td {
+    border: 3px solid white;
+    border-collapse: collapse;
+}
+
+table .answers {
+    text-align: center;
+    font-weight: bold;
+}
+
+th, td {
+    padding: 3vmin;
+}

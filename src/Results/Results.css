@@ -1,0 +1,17 @@
+
+.results {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    gap: 5vmin;
+    overflow-y: scroll;
+    padding: 5vmin;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
