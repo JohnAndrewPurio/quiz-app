@@ -20,10 +20,12 @@ export default function Quiz({quizData}) {
 
     useEffect(() => {
         if(quizNum < quizData.length) {
-            adjustTimer()
             clearInterval(timerID)
             clearTimeout(countdownID)
+            adjustTimer()
+            
         }
+        console.log(timerID, countdownID)
 
         // eslint-disable-next-line
     }, [quizNum])
