@@ -31,7 +31,7 @@ export default function Quiz({quizData}) {
     }, [quizNum])
 
     const adjustTimer = () => {
-        const timer = setInterval( () => setTimerLength(current => current - 0.20), 10)
+        const timer = setInterval( () => setTimerLength(current => current - 0.40), 20)
         const countdown = setTimeout( () => checkAnswer(-1), 5000)
 
         setCountdownID(countdown)
