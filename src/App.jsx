@@ -45,7 +45,6 @@ export default function App() {
     }
     
     const redirectToQuiz = (index) => {
-        console.log(index)
         getData(index + 9)
     }
 
