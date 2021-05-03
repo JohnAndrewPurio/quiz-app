@@ -11,8 +11,6 @@ export default function Choices({choice, index, checkAnswer, chosenAnswer, answe
     const selected = index === chosenAnswer
     const key = index === correctAnswer
 
-    console.log(answeredCorrect, selected, index, chosenAnswer, correctAnswer)
-
     return (
         <button className={disabled ? `disabled ${selected ? answeredCorrect ? 'correct': 'mistaken': key ? 'correct': ''}`: "choice"} 
             onClick={() => checkAnswer(index) } disabled={disabled} >

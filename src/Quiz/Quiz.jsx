@@ -1,10 +1,16 @@
 import { useState, useEffect } from 'react'
+import { useSound } from 'use-sound'
 import Choices from './Choices'
 import Question from './Question'
 import { Redirect } from 'react-router'
 import Timer from './Timer'
+import correctSound from '../assets/correct.wav'
+import errorSound from '../assets/error.wav'
 
 export default function Quiz({quizData}) {
+    const [correctSFX] = useSound(correctSound)
+    const [wrongSFX] = useSound(errorSound)
+
     const [quizNum, setQuizNum] = useState(0)
     const [answeredCorrect, setAnsweredCorrect] = useState(false)
     const [chosenAnswer, setChosenAnswer] = useState(null)
@@ -16,8 +22,6 @@ export default function Quiz({quizData}) {
     const [countdownID, setCountdownID] = useState('')
     const currentNum = quizData[quizNum]
 
-    console.log(currentNum)
-
     useEffect(() => {
         if(quizNum < quizData.length) {
             adjustTimer()
@@ -25,7 +29,6 @@ export default function Quiz({quizData}) {
             clearTimeout(countdownID)
             
         }
-        console.log(timerID, countdownID)
 
         // eslint-disable-next-line
     }, [quizNum])
@@ -42,6 +45,8 @@ export default function Quiz({quizData}) {
         const correct = index === currentNum.correctChoice
         const pointEarned = correct ? score + 1: score;
         const answersSelected = [...selectedAnswers]
+
+        correct ? correctSFX(): wrongSFX()
 
         answersSelected.push(index)
         clearInterval(timerID)
