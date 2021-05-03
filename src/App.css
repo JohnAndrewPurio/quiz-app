@@ -135,7 +135,7 @@ body {
 }
 
 @media only screen and (max-height: 411px) {
-    body {
+    body, button {
         font-size: 12px;
     }
 
