@@ -17,7 +17,6 @@ const categories = ['General Knowledge', 'Books', 'Film', 'Music', 'Musical & Th
 
 export default function App() {
     const [quizData, setQuizData] = useState([])
-    const [buttonsDisabled, setButtonsDisabled] = useState(false)
 
     const getData = async (category) => {
         try {
@@ -46,7 +45,7 @@ export default function App() {
     }
     
     const redirectToQuiz = (index) => {
-        setButtonsDisabled(true)
+        console.log(index)
         getData(index + 9)
     }
 
@@ -59,8 +58,7 @@ export default function App() {
                     <Route exact path="/results" render={(props) => <Results data={props.location.state} />} ></Route>
                     <Route exact path="/">
                         {quizData.length > 0 ? <Redirect to='/quiz' />
-                                :<Start categories={categories} categoriesIndex={categoriesIndex} redirectToQuiz={redirectToQuiz} 
-                                    buttonsDisabled={buttonsDisabled} />
+                                :<Start categories={categories} categoriesIndex={categoriesIndex} redirectToQuiz={redirectToQuiz} />
                         }
                     </Route>
                 </Switch>
