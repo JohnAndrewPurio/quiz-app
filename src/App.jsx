@@ -9,7 +9,7 @@ import Start from './Start/Start'
 // 26 - Celebrities, 25 - Art, 24 - Politics, 23 - History, 22 - Geography, 21 - Sports, 20 - Mythology, 16 - Board Games, 15 - Video Games
 // 14 - Television, 13 - Musical & Theatres, 12 - Music, 11 - Film, 10 - Books
 
-const URL = 'https://opentdb.com/api.php?amount=10'
+const URL = 'https://opentdb.com/api.php?amount=10&type=multiple'
 const categoriesIndex = [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27]
 const categories = ['General Knowledge', 'Books', 'Film', 'Music', 'Musical & Theatres', 'Television', 'Video Games', 
                     'Board Games', 'Science & Nature', 'Science: Computer', 'Science: Math', 'Mythology', 'Sports', 'Geography', 
