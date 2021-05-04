@@ -23,15 +23,21 @@ export default function App() {
             const fetchedData = await fetch(`${URL}${category ? `&category=${category}`: ''}`)
             const jsonData = await fetchedData.json()
             const data = jsonData.results
-            
+            let num = -1;
             const newData = data.map( ele => {
                 const {question, correct_answer, incorrect_answers} = ele
                 const formattedData = {
                     question: question,
                     choices: incorrect_answers
                 }
-                const correctAnswerIndex = Math.floor( Math.random() * formattedData.choices.length + 1 )
-        
+                let correctAnswerIndex = Math.floor( Math.random() * formattedData.choices.length + 1 )
+                
+                while(num === correctAnswerIndex) {
+                    correctAnswerIndex = Math.floor( Math.random() * formattedData.choices.length + 1 )
+                }
+
+                num = correctAnswerIndex
+
                 formattedData.choices.splice(correctAnswerIndex, 0, correct_answer)
                 formattedData.correctChoice = correctAnswerIndex
         
