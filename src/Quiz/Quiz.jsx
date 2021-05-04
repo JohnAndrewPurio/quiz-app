@@ -25,9 +25,11 @@ export default function Quiz({quizData}) {
     useEffect(() => {
         if(quizNum < quizData.length) {
             adjustTimer()
+        }
+
+        return () => {
             clearInterval(timerID)
             clearTimeout(countdownID)
-            
         }
 
         // eslint-disable-next-line
@@ -60,6 +62,7 @@ export default function Quiz({quizData}) {
         setDisableButtons(true)
 
         setTimeout( () => nextQuestion(), 3000)
+
     }
 
     const nextQuestion = () => {

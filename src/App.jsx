@@ -37,7 +37,7 @@ export default function App() {
         
                 return formattedData
             })
-        
+            
             setQuizData(newData)
         } catch(e) {
             console.log(e)
@@ -57,7 +57,7 @@ export default function App() {
                     <Route exact path="/results" render={(props) => <Results data={props.location.state} />} ></Route>
                     <Route exact path="/">
                         {quizData.length > 0 ? <Redirect to='/quiz' />
-                                :<Start categories={categories} categoriesIndex={categoriesIndex} redirectToQuiz={redirectToQuiz} />
+                                : <Start categories={categories} categoriesIndex={categoriesIndex} redirectToQuiz={redirectToQuiz} />
                         }
                     </Route>
                 </Switch>

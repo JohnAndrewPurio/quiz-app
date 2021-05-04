@@ -15,7 +15,7 @@ export default function Choices({choice, index, checkAnswer, chosenAnswer, answe
         <button className={disabled ? `disabled ${selected ? answeredCorrect ? 'correct': 'mistaken': key ? 'correct': ''}`: "choice"} 
             onClick={() => checkAnswer(index) } disabled={disabled} >
                 <h2 dangerouslySetInnerHTML={{__html: choice}}></h2>
-                <Confetti active={answeredCorrect && selected} config={config} />
+                <Confetti active={selected && key} config={config} />
         </button>
     )
 }
